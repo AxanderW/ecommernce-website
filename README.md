@@ -21,8 +21,6 @@ Check out the best sellers, hot sales, and new arrivals
 
 ### Shop Products
 
-![Shop](Images/shop.gif)
-
 View all products at once or shop by category
 
 
