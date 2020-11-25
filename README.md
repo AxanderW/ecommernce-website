@@ -1,7 +1,5 @@
 # Frontend E-commerce Website | Web Application 
 
-![Home-Page](Images/homepage1.gif)
-
 ## Background
 
 The purpose of this project is to build a full stack web application that will give small business owners full visibility of sales, and inventory. Additionally, amidst the devastation of covid-19 and mandatory social distancing the ability to sell goods and services online is essential. 
