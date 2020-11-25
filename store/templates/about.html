@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+    About Shop Cool Fashion  
+{% endblock  %}
+{% block metkeywords  %}
+    Fashion, Creative
+{% endblock %}
+{% block title %}
+    About Us - A Cool Fashion Store  
+{% endblock title %}
+
+{% block content %}
+    <!-- ABOUT SECTION-->
+    <section class="about spad">
+        <h2 class="text-center section-title"> About Us</h2>
+        <div class = "container">
+            <div class="row">                
+                <div class = "about__pic">
+                    <img src = "{{ about_banner.image.url }}" alt="About Us">
+                </div>
+            </div> <!-- ./row-->
+            <div class = "row">
+                <div class = "col-lg-4 col-md-4 col-sm-6">
+                    <div class = "about_item">
+                        <h4>Who We Are ?</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis vitae blanditiis cupiditate nam eaque quas. Similique necessitatibus nostrum eum illo repellendus. Rerum, natus! Dolor quis quos nemo, harum esse labore!</p>
+                    </div>
+                </div>
+                <div class = "col-lg-4 col-md-4 col-sm-6">
+                    <div class = "about_item">
+                        <h4>What We Do ?</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis vitae blanditiis cupiditate nam eaque quas. Similique necessitatibus nostrum eum illo repellendus. Rerum, natus! Dolor quis quos nemo, harum esse labore!</p>
+                    </div>
+                </div>
+                <div class = "col-lg-4 col-md-4 col-sm-6">
+                    <div class = "about_item">
+                        <h4>Our Mission</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis vitae blanditiis cupiditate nam eaque quas. Similique necessitatibus nostrum eum illo repellendus. Rerum, natus! Dolor quis quos nemo, harum esse labore!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- END ABOUT SECTION-->
+    <!-- OUR TEAM SECTION-->
+    <section class="team spad">
+        <div class="container">
+            <div class="row">
+                <div class = "col-lg-12">
+                    <div class = "section-title">
+                        <span>Our Team</span>
+                        <h2>Meet Our Team</h2>
+                    </div>
+                </div>
+            </div> <!-- End Row-->
+            <div class = "row">
+                {% for about_person in about_persons %}
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class = "team__item">
+                        <img src = "{{ about_person.image.url }} " alt="Team member">
+                        <h4>{{ about_person.name }}</h4>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

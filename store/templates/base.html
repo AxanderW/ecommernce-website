@@ -1,0 +1,75 @@
+{% load static  %}
+{% load fontawesome_5 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- ADDING BOOTSTRAP LINKS-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- CUSTOM CSS FILES-->
+    
+    <link rel="stylesheet" href="{% static '/css/custom.css' %}">
+
+    <!-- Css Styles -->
+
+    <link rel="stylesheet" href="{% static '/css/fashion/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static '/css/fashion/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static '/css/fashion/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static '/css/fashion/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static '/css/fashion/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static '/css/fashion/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static '/css/fashion/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static '/css/fashion/style.css' %}" type="text/css">
+
+
+    
+    <!--ADDING GOOG FONTS LINK-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <!-- ADDING FONTAWRSOME LINKS-->
+    {% fontawesome_5_static %} 
+    <link rel="stylesheet" type="text/csss" href="{% static '/css/fontawesome.min.css' %}">
+
+    <meta name="description" content="{% block metadescription  %}{% endblock %}">
+    <meta name="keywords" content="{% block metkeywords  %}{% endblock %}">
+
+    <title>{% block title  %}{% endblock %}</title>
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <body>
+        <div class="container">
+            <div class="container-fluid bg-light navbar-fixed-top my_top_navbar_div">
+                {% include 'top-navbar.html' %}
+            </div>
+            {% include 'header.html' %}
+            {% include 'navbar.html' %}
+            {% block content %}
+            {% endblock content %}
+        </div>
+        {% include 'footer.html' %}
+
+
+  
+    <!-- Js Plugins -->
+  
+    <script src="{% static '/js/fashion/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static '/js/fashion/bootstrap.min.js' %}"></script>
+    <script src="{% static '/js/fashion/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static '/js/fashion/jquery.nicescroll.min.js' %}"></script>
+    <script src="{% static '/js/fashion/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static '/js/fashion/jquery.countdown.min.js' %}"></script>
+    <script src="{% static '/js/fashion/jquery.slicknav.js' %}"></script>
+    <script src="{% static '/js/fashion/mixitup.min.js' %}"></script>
+    <script src="{% static '/js/fashion/owl.carousel.min.js' %}"></script>
+    <script src="{% static '/js/fashion/main.js' %}"></script>
+</body>
+</html>

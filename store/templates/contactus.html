@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block metadescription %}
+    Contact Shop Cool Fashion  
+{% endblock  %}
+{% block metkeywords  %}
+    Fashion, Creative
+{% endblock %}
+{% block title %}
+    Contact Us - A Cool Fashion Store  
+{% endblock title %}
+
+{% block content %}
+    <h2 class="text-center section-title"> Contact Us</h2>
+    <div>
+        {% if form %}
+            <div class="mx-auto">
+                <form method="POST">
+                    {% csrf_token  %}
+                    <p>{{ form | crispy }}</p>
+                    <button type="submit" class="btn btn-secondary"><span>Submit</span></button>
+                </form>
+                <br>
+            </div>
+        {% endif %}
+    </div>
+
+
+{% endblock content %}

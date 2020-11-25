@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+    {% if category %}
+        {{ category.description|truncatewords:155 }}
+    {% else %}
+        Welcome to a cool store where you can buy cool and stylish fashion.
+    {% endif %}
+{% endblock metadescription %}
+{% block title %}
+    {% if category %}
+        {{ category.name }} - A Cool Store
+    {% else %}
+        See Our Fashion Collection - A Cool Store
+    {% endif %}
+{% endblock title %}
+{% block content %}
+    <!-- Breadcrum navigation-->
+    {% if category %}
+        <div class="row my_row_class">
+            <div class="mx-auto">
+                <p><a href="{% url 'store:allProdCat' %}"><h5>Our Fashion Collection</a> | {{ category.name }} </h5> </p>
+            </div>
+        </div>
+    {% endif %}
+        <div class="mx-auto">
+    {% if category %}
+        <img class = "img-fluid set-bg " src="{{ category.image.url }}" alt="{{ category.name }}">
+        </div>
+        <br>
+        <div claass = "mx-auto">
+            <h1 class="text-center my_title">{{ category.name }}</h1>
+            <br>
+            <h5 class="text-center">{{ category.description }}</h5></p>
+        </div>
+        {% else %}
+        <img class="my_image_padding" src = "{% static 'images/logo.png' %}" alt="Our Fashion Collection">
+        <br>
+        <div>
+            <h1 class="text-center my_title">Our Fashion Collection</h1>
+            <p class="text-justify">
+                Finding the perfect outfit for your day can instantly add to the level of comfort and sesnse of style througout your day.
+                They can transform the blandest of day instantly by adding colour, softness and an air of style. As well as being comfy 
+                and looking great, our range of fashion will certainly embolden your decor with personalized charm.
+            </p>
+        </div>    
+    {% endif %}
+    
+    <div class="container">
+        <div class="row mx-auto">
+            {% for product in products %}
+                 <div class = "col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 ">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ product.image.url }}">
+                                <!--  REMOVING ICONS FOR NOW 
+                                <ul class = "product__hover">
+                                    <li><a href="{{ product.get_url }}"><i class="fas fa-binoculars"></i><span>View</span></a></li>
+                                    <li><a href="#"><i class="far fa-heart"></i><span>Add to Favs</span></a></li>
+                                    <li><a href="{% url 'cart:add_cart' product.id %}"><i class="fas fa-shopping-bag"></i><span>Add to Cart</span></a></li>
+                                </ul> -->
+                            
+                            </div>
+                        </div>
+                        {% if product.stock <= 0 %}
+                        <a class="btn btn-secondary" href="{{ product.get_url }}">View</a>
+                        <a class="btn btn-danger" href="#">Out of Stock</a>
+                        {% else %}
+                        <a class="btn btn-secondary" href="{{ product.get_url }}">View</a>
+                        <a class="btn btn-success" href="{% url 'cart:add_cart' product.id %}">Add to Cart</a>
+                        {% endif %}
+                        <div class="product__item__text">
+                            <h6>{{ product.name }}</h6>
+                            <!--  REMOVING ICONS FOR NOW 
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>-->
+                            <h5>${{ product.price }}</h5>
+                            <br>
+                            <br>
+                        </div>
+                        
+                </div> <!-- ./ row product__filter-->
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

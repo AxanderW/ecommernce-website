@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="my_custom_menu">
+        <ul>
+            {% if request.user.is_authenticated and request.user.first_name %}
+                <li>
+                    Welcome, {{ request.user.first_name }} 
+                     <!-- REMOVING ICONS FOR NOW 
+                    <i class="fas fa-user"></i> -->
+                </li>
+                <li>
+                    <a href="{% url 'signout' %}">Sign Out 
+                        <!-- REMOVING ICONS FOR NOW 
+                        <i class="fas fa-sign-out-alt"></i> -->
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'order:order_history' %}">Order History 
+                        <!-- REMOVING ICONS FOR NOW 
+                        <i class="fas fa-receipt"></i> -->
+                    </a>
+                </li>
+            {% else %}
+            <li>
+                <a href="{% url 'signup' %}">Sign Up
+                    <!-- REMOVING ICONS FOR NOW 
+                     <i class="fas fa-user-plus"></i> -->
+                    </a>
+            </li>
+            <li>
+                <a href="{% url 'signin' %}">Login
+                    <!-- REMOVING ICONS FOR NOW
+                    <i class="fas fa-sign-in-alt"></i> -->
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+        
+    </div>
+</div>

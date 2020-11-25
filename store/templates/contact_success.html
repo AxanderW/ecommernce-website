@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+
+    Thank you for contacting at A Cool Fashion Store.
+
+{% endblock metadescription %}
+{% block title %}
+    Thanks - A Cool Fashion Store
+{% endblock title %}
+
+{% block content %}
+<br>
+    <div class="mx-auto">
+        <br>
+        <h1 class="my_title text-center">Thanks for contacting us !</h1>
+        <br>
+        <div>
+            <p>
+                Dear Customer,
+                <br>
+                <br>
+                Thank you for contacting us. A team member will contact you shortly.
+                <br>
+                <a href="{% url 'store:allProdCat' %}">Continue shopping</a> and enjoy the variety of fashion collections that we have at the cool fashion store.
+            </p>
+        </div>
+    </div>
+<br>
+{% endblock content %}
